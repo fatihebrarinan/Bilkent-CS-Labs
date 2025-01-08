@@ -1,1 +1,1 @@
-# This is the folder that contains all of the Lab projects done on CS101.
+# This is the folder that contains all of the Lab projects done in Bilkent.
