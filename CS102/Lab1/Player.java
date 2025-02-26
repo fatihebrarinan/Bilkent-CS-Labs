@@ -2,6 +2,10 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Player class represents the players at the monopoly game. A player can be a
+ * user or a computer.
+ */
 public class Player
 {
     private int coins;
@@ -16,6 +20,13 @@ public class Player
     Random random = new Random();
     Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Constructer starts every player with 10 coins and the slot 0.
+     * 
+     * @param name
+     * @param board
+     * @param isUser
+     */
     public Player(String name, Board board, boolean isUser)
     {
         coins = 10;
@@ -28,54 +39,65 @@ public class Player
 
     }
 
+    /**
+     * Round function controls game flow for every player. It is responsible for
+     * rolling the dice and doing the necesarry interactions with the slot it landed
+     * on.
+     * 
+     * @param players
+     */
     public void round(ArrayList<Player> players)
     {
-        if (isSkipTurn)
+        if (isSkipTurn)// Special slot 3 makes the player skips the round.
         {
             System.out.println(name + " is skipping this turn.");
             isSkipTurn = false;
             return;
         }
-        if (currentSlot != null && currentSlot.getPlayersOnThisSlot().contains(this))
+        if (currentSlot != null && currentSlot.getPlayersOnThisSlot().contains(this))// Clears the current slot.
         {
             currentSlot.getPlayersOnThisSlot().remove(this);
         }
 
         int diceFace = random.nextInt(1, 7);
         System.out.printf("%s played %d\n", this.name, diceFace);
-        boardCounter += diceFace;
+        boardCounter += diceFace;// Rolls the dice.
         if (boardCounter > 15)
         {
             if (boardCounter == 16)
             {
-                coins += 6;
+                coins += 6;// Special case 0.
             } else
             {
-                coins += 3;
+                coins += 3;// Special case 0.
             }
 
             boardCounter = boardCounter % 16;
 
         }
-        currentSlot = board.getSlot(boardCounter);
+        currentSlot = board.getSlot(boardCounter);// Determines current slot.
 
         currentSlot.getPlayersOnThisSlot().add(this);
 
-        currentSlot.askToBuy(this);
+        currentSlot.askToBuy(this);// If the slot is not owned, ask to buy.
 
-        currentSlot.determineAndPayRent(this);
+        currentSlot.determineAndPayRent(this);// If the slot is owned, pay rent.
 
-        currentSlot.handleSpecials(this, players);
+        currentSlot.handleSpecials(this, players);// If slot is special, handle it.
 
         askForAction();
 
     }
 
+    /**
+     * After every round, the user is asked if they want to build house on any slot
+     * or sell any of their slot. If the player is computer, it is decided randomly.
+     */
     private void askForAction()
     {
         if (!properties.isEmpty())
         {
-            if (isUser)
+            if (isUser)// If the player is user
             {
                 String propertiesString = "";
                 for (Slot slot : properties)
@@ -151,7 +173,7 @@ public class Player
                     System.out.println("Invalid input. Skipping.");
                 }
 
-            } else
+            } else// If the player is computer.
             {
                 int randomInt = random.nextInt(10);
                 if (randomInt == 0)
@@ -178,51 +200,99 @@ public class Player
         }
     }
 
-    public void setCoins(int coins)
-    {
-        this.coins = coins;
-    }
-
-    public int getCoins()
-    {
-        return coins;
-    }
-
-    public boolean getIsUser()
-    {
-        return isUser;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public ArrayList<Slot> getProperties()
-    {
-        return properties;
-    }
-
+    /**
+     * Makes the isEliminated true. User gets eliminated.
+     */
     public void eliminate()
     {
         isEliminated = true;
     }
 
+    /**
+     * Setter for coins of player.
+     * 
+     * @param coins
+     */
+    public void setCoins(int coins)
+    {
+        this.coins = coins;
+    }
+
+    /**
+     * Getter for coins of player.
+     * 
+     * @return
+     */
+    public int getCoins()
+    {
+        return coins;
+    }
+
+    /**
+     * Getter of whether the player is user nor not.
+     * 
+     * @return
+     */
+    public boolean getIsUser()
+    {
+        return isUser;
+    }
+
+    /**
+     * Getter of player name.
+     * 
+     * @return
+     */
+    public String getName()
+    {
+        return name;
+    }
+
+    /**
+     * Getter of the properties of the player.
+     * 
+     * @return
+     */
+    public ArrayList<Slot> getProperties()
+    {
+        return properties;
+    }
+
+    /**
+     * Getter of whether the user is eliminated or not.
+     * 
+     * @return
+     */
     public boolean getIsEliminated()
     {
         return isEliminated;
     }
 
+    /**
+     * Getter of the sum of the dice scores of the player.
+     * 
+     * @return
+     */
     public int getBoardCounter()
     {
         return boardCounter;
     }
 
+    /**
+     * Getter of the sum of the dice scores of the player.
+     * 
+     * @param boardCounter
+     */
     public void setBoardCounter(int boardCounter)
     {
         this.boardCounter = boardCounter;
     }
 
+    /**
+     * Setter of the isSkipTurn. Special case 3 uses this method.
+     * 
+     * @param isSkipTurn
+     */
     public void setIsSkipTurn(boolean isSkipTurn)
     {
         this.isSkipTurn = isSkipTurn;

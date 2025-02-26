@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+/**
+ * Test class for the monopoly game.
+ */
 public class GameTest
 {
     public static void main(String[] args)
@@ -48,7 +51,7 @@ public class GameTest
                 break;
             }
         }
-        Collections.shuffle(players);
+        Collections.shuffle(players);// Shuffle the players ArrayList for random order.
 
         // Start the rounds
         System.out.printf("%s", board.toString());
@@ -60,7 +63,7 @@ public class GameTest
 
             for (int i = 0; i < players.size(); i++)
             {
-                players.get(i).round(players);
+                players.get(i).round(players);// Every player plays their round.
             }
 
             for (int j = 0; j < players.size(); j++)
@@ -68,13 +71,13 @@ public class GameTest
                 coinsString += String.format("%s has %d coins left.\n", players.get(j).getName(),
                         players.get(j).getCoins());
             }
-            System.out.printf("%s\n%s", board.toString(), coinsString);
+            System.out.printf("%s\n%s", board.toString(), coinsString);// Print the board and coins every round.
 
             for (Player player : players)
             {
                 if (player.getIsEliminated())
                 {
-                    players.remove(player);
+                    players.remove(player);// Eliminate player if isEliminated is true for them.
                 }
             }
             if (players.size() == 1)

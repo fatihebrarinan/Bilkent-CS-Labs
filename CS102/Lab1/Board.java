@@ -1,6 +1,10 @@
-
+/**
+ * Board class is responsible for the initialization of the slots and printing
+ * it on the console.
+ */
 public class Board
 {
+    // Initialize the slots.
     Slot slotA = new Slot(4, "A");
     Slot slotB = new Slot(4, "B");
     Slot slotC = new Slot(4, "C");
@@ -18,6 +22,12 @@ public class Board
     Slot slot2 = new Slot(2, "2");
     Slot slot3 = new Slot(3, "3");
 
+    /**
+     * Returns the slot at the given index.
+     * 
+     * @param index
+     * @return
+     */
     public Slot getSlot(int index)
     {
         switch (index)
@@ -63,6 +73,9 @@ public class Board
         }
     }
 
+    /**
+     * String representation of the monopoly game board.
+     */
     public String toString()
     {
         return String.format(
