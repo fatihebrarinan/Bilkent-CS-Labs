@@ -1,0 +1,12 @@
+![CS101 Lab 5_page-0001](https://github.com/user-attachments/assets/53dccf9f-7ad3-4d49-b838-4de756d1e67b)
+![CS101 Lab 5_page-0002](https://github.com/user-attachments/assets/e9a2f843-dda0-40f2-a9fa-01a14a907ca8)
+![CS101 Lab 5_page-0003](https://github.com/user-attachments/assets/f89c81e0-6421-4fa2-b327-d7d501b7392e)
+![CS101 Lab 5_page-0004](https://github.com/user-attachments/assets/5774e596-7e30-4f2d-991f-3e81db9c10cf)
+![CS101 Lab 5_page-0005](https://github.com/user-attachments/assets/4afe8773-eb28-41b1-a015-88be9cf54c07)
+![CS101 Lab 5_page-0006](https://github.com/user-attachments/assets/48148175-e34c-48ab-affb-5862304456bd)
+![CS101 Lab 5_page-0007](https://github.com/user-attachments/assets/a0d2af04-b81d-44b1-b4a3-78ff09582f01)
+![CS101 Lab 5_page-0008](https://github.com/user-attachments/assets/913780b0-73be-48f4-bfac-381093155c72)
+# Revision
+![CS101 Lab 5 - Tue_page-0001](https://github.com/user-attachments/assets/55cab19c-fa19-409a-8247-a0475132649c)
+![CS101 Lab 5 - Tue_page-0002](https://github.com/user-attachments/assets/6c4b6e45-5461-4a8d-9f1f-6ccc9a5efd71)
+![CS101 Lab 5 - Tue_page-0003](https://github.com/user-attachments/assets/82580d89-1a05-480e-ba7f-d22a22e2e104)
